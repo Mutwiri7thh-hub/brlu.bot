@@ -472,8 +472,11 @@ bot.on("text", async (ctx) => {
 
     saveJSON(MPESA_FILE, mpesaRequests);
 
-    // UPDATED: Short confirmation message only.
-    await ctx.reply("✅ M-PESA request sent.");
+    await ctx.reply(
+      `✅ M-PESA request sent.\n\nReference:\n${reference}\n\n` +
+        `If the M-PESA prompt appears, complete payment with your PIN. ` +
+        `After Paystack confirms payment, your premium invite will be sent automatically.`
+    );
   } catch (error) {
     console.error(
       "❌ M-PESA PAYMENT ERROR:",
